@@ -8,7 +8,7 @@ const playSound = (type) => {
     const ctx = new AudioContext();
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
-    
+
     osc.connect(gain);
     gain.connect(ctx.destination);
     const now = ctx.currentTime;
@@ -33,8 +33,8 @@ const playSound = (type) => {
       osc.type = 'square';
       osc.frequency.setValueAtTime(400, now);
       for (let i = 0; i < 5; i++) {
-         osc.frequency.setValueAtTime(600, now + i * 0.3);
-         osc.frequency.setValueAtTime(400, now + i * 0.3 + 0.15);
+        osc.frequency.setValueAtTime(600, now + i * 0.3);
+        osc.frequency.setValueAtTime(400, now + i * 0.3 + 0.15);
       }
       gain.gain.setValueAtTime(0.1, now);
       gain.gain.linearRampToValueAtTime(0, now + 1.5);
@@ -42,7 +42,7 @@ const playSound = (type) => {
       osc.stop(now + 1.5);
     } else if (type === 'win') {
       osc.type = 'square';
-      const notes = [440, 554.37, 659.25, 880]; 
+      const notes = [440, 554.37, 659.25, 880];
       notes.forEach((freq, i) => {
         osc.frequency.setValueAtTime(freq, now + i * 0.15);
       });
@@ -57,37 +57,37 @@ const playSound = (type) => {
 };
 
 const PIXEL_COLORS = {
-  0: 'transparent', 1: '#000000', 2: '#ff3b6b', 3: '#ff9ebb', 
+  0: 'transparent', 1: '#000000', 2: '#ff3b6b', 3: '#ff9ebb',
   4: '#2ecc71', 5: '#33ccff', 6: '#ffffff',
 };
 
 const normalHeart = [
-  [0,0,1,1,1,0,0,0,1,1,1,0,0], [0,1,2,2,2,1,0,1,2,2,2,1,0], [1,2,2,3,3,2,1,2,2,2,2,2,1],
-  [1,2,2,3,2,2,2,2,2,2,2,2,1], [1,2,2,2,2,2,2,2,2,2,2,2,1], [0,1,2,2,2,2,2,2,2,2,2,1,0],
-  [0,0,1,2,2,2,2,2,2,2,1,0,0], [0,0,0,1,2,2,2,2,2,1,0,0,0], [0,0,0,0,1,2,2,2,1,0,0,0,0],
-  [0,0,0,0,0,1,2,1,0,0,0,0,0], [0,0,0,0,0,0,1,0,0,0,0,0,0],
+  [0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0], [0, 1, 2, 2, 2, 1, 0, 1, 2, 2, 2, 1, 0], [1, 2, 2, 3, 3, 2, 1, 2, 2, 2, 2, 2, 1],
+  [1, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 1], [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1], [0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0],
+  [0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 1, 0, 0], [0, 0, 0, 1, 2, 2, 2, 2, 2, 1, 0, 0, 0], [0, 0, 0, 0, 1, 2, 2, 2, 1, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
 ];
 const sadHeart = [
-  [0,0,1,1,1,0,0,0,1,1,1,0,0], [0,1,2,2,2,1,0,1,2,2,2,1,0], [1,2,2,3,3,2,1,2,2,2,2,2,1],
-  [1,2,2,3,2,2,2,2,2,2,2,2,1], [1,2,1,1,2,2,2,2,1,1,2,2,1], [0,1,2,2,2,2,2,2,2,2,2,1,0],
-  [5,5,1,2,2,1,1,1,2,2,1,5,5], [0,5,0,1,2,2,2,2,2,1,0,5,0], [0,0,0,0,1,2,2,2,1,0,0,0,0],
-  [0,0,0,0,0,1,2,1,0,0,0,0,0], [0,0,0,0,0,0,1,0,0,0,0,0,0],
+  [0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0], [0, 1, 2, 2, 2, 1, 0, 1, 2, 2, 2, 1, 0], [1, 2, 2, 3, 3, 2, 1, 2, 2, 2, 2, 2, 1],
+  [1, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 1], [1, 2, 1, 1, 2, 2, 2, 2, 1, 1, 2, 2, 1], [0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0],
+  [5, 5, 1, 2, 2, 1, 1, 1, 2, 2, 1, 5, 5], [0, 5, 0, 1, 2, 2, 2, 2, 2, 1, 0, 5, 0], [0, 0, 0, 0, 1, 2, 2, 2, 1, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
 ];
 const happyHeart = [
-  [0,0,1,1,1,0,0,0,1,1,1,0,0], [0,1,2,2,2,1,0,1,2,2,2,1,0], [1,2,2,3,3,2,1,2,2,2,2,2,1],
-  [1,2,1,2,1,2,2,2,1,2,1,2,1], [1,2,2,2,2,2,2,2,2,2,2,2,1], [0,1,2,2,1,2,2,2,1,2,2,1,0],
-  [0,0,1,2,2,1,1,1,2,2,1,0,0], [0,0,0,1,2,2,2,2,2,1,0,0,0], [0,0,0,0,1,2,2,2,1,0,0,0,0],
-  [0,0,0,0,0,1,2,1,0,0,0,0,0], [0,0,0,0,0,0,1,0,0,0,0,0,0],
+  [0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0], [0, 1, 2, 2, 2, 1, 0, 1, 2, 2, 2, 1, 0], [1, 2, 2, 3, 3, 2, 1, 2, 2, 2, 2, 2, 1],
+  [1, 2, 1, 2, 1, 2, 2, 2, 1, 2, 1, 2, 1], [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1], [0, 1, 2, 2, 1, 2, 2, 2, 1, 2, 2, 1, 0],
+  [0, 0, 1, 2, 2, 1, 1, 1, 2, 2, 1, 0, 0], [0, 0, 0, 1, 2, 2, 2, 2, 2, 1, 0, 0, 0], [0, 0, 0, 0, 1, 2, 2, 2, 1, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
 ];
 const roseSticker = [
-  [0,0,0,1,1,1,0,0,0], [0,0,1,2,3,2,1,0,0], [0,1,2,2,2,2,2,1,0], [0,1,2,1,2,1,2,1,0],
-  [0,0,1,2,2,2,1,0,0], [0,0,0,1,1,1,0,0,0], [0,1,1,4,4,4,1,1,0], [1,4,4,1,4,1,4,4,1],
-  [0,1,1,0,1,0,1,1,0], [0,0,0,0,1,0,0,0,0]
+  [0, 0, 0, 1, 1, 1, 0, 0, 0], [0, 0, 1, 2, 3, 2, 1, 0, 0], [0, 1, 2, 2, 2, 2, 2, 1, 0], [0, 1, 2, 1, 2, 1, 2, 1, 0],
+  [0, 0, 1, 2, 2, 2, 1, 0, 0], [0, 0, 0, 1, 1, 1, 0, 0, 0], [0, 1, 1, 4, 4, 4, 1, 1, 0], [1, 4, 4, 1, 4, 1, 4, 4, 1],
+  [0, 1, 1, 0, 1, 0, 1, 1, 0], [0, 0, 0, 0, 1, 0, 0, 0, 0]
 ];
 const letterSticker = [
-  [1,1,1,1,1,1,1,1,1,1,1], [1,6,6,6,6,6,6,6,6,6,1], [1,1,6,6,6,6,6,6,6,1,1],
-  [1,6,1,6,6,6,6,6,1,6,1], [1,6,6,1,6,6,6,1,6,6,1], [1,6,6,6,1,2,1,6,6,6,1],
-  [1,6,6,6,6,1,6,6,6,6,1], [1,1,1,1,1,1,1,1,1,1,1]
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 6, 6, 6, 6, 6, 6, 6, 6, 6, 1], [1, 1, 6, 6, 6, 6, 6, 6, 6, 1, 1],
+  [1, 6, 1, 6, 6, 6, 6, 6, 1, 6, 1], [1, 6, 6, 1, 6, 6, 6, 1, 6, 6, 1], [1, 6, 6, 6, 1, 2, 1, 6, 6, 6, 1],
+  [1, 6, 6, 6, 6, 1, 6, 6, 6, 6, 1], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
 
 const StaticStickers = () => (
@@ -106,7 +106,7 @@ const CodedPixelArt = ({ matrix, className }) => {
     <div className={className}>
       <svg viewBox={`0 0 ${cols} ${rows}`} className="w-full h-full drop-shadow-[0_8px_0_rgba(0,0,0,0.2)]" shapeRendering="crispEdges">
         {matrix.map((row, y) => row.map((colorKey, x) => (
-            colorKey !== 0 ? <rect key={`${x}-${y}`} x={x} y={y} width="1.05" height="1.05" fill={PIXEL_COLORS[colorKey]} /> : null
+          colorKey !== 0 ? <rect key={`${x}-${y}`} x={x} y={y} width="1.05" height="1.05" fill={PIXEL_COLORS[colorKey]} /> : null
         )))}
       </svg>
     </div>
@@ -125,7 +125,7 @@ const FloatingHearts = () => {
     <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
       {hearts.map((heart) => (
         <div key={heart.id} className="absolute bottom-[-10%] text-pink-500 opacity-70 animate-float"
-             style={{ left: `${heart.left}%`, animationDuration: `${heart.animationDuration}s`, animationDelay: `${heart.animationDelay}s`, fontSize: `${heart.fontSize}px`, textShadow: '2px 2px 0 #000' }}>
+          style={{ left: `${heart.left}%`, animationDuration: `${heart.animationDuration}s`, animationDelay: `${heart.animationDelay}s`, fontSize: `${heart.fontSize}px`, textShadow: '2px 2px 0 #000' }}>
           {['<3', '❤️', '💖'][Math.floor(Math.random() * 3)]}
         </div>
       ))}
@@ -146,7 +146,7 @@ const Confetti = () => {
     <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
       {particles.map((p) => (
         <div key={p.id} className="absolute top-[-10%] opacity-100 animate-confetti"
-             style={{ left: `${p.left}%`, animationDuration: `${p.animationDuration}s`, animationDelay: `${p.animationDelay}s`, fontSize: `${p.fontSize}px`, textShadow: '2px 2px 0 #000' }}>
+          style={{ left: `${p.left}%`, animationDuration: `${p.animationDuration}s`, animationDelay: `${p.animationDelay}s`, fontSize: `${p.fontSize}px`, textShadow: '2px 2px 0 #000' }}>
           {p.emoji}
         </div>
       ))}
@@ -156,7 +156,7 @@ const Confetti = () => {
 
 const Win95Error = ({ error, onClose }) => (
   <div className="fixed z-[60] bg-[#c0c0c0] border-t-white border-l-white border-b-black border-r-black border-[3px] p-[2px] shadow-[4px_4px_0_rgba(0,0,0,1)] font-pixel text-[8px] md:text-[10px]"
-       style={{ top: error.top, left: error.left, width: '240px' }}>
+    style={{ top: error.top, left: error.left, width: '240px' }}>
     <div className="bg-[#000080] text-white px-1 py-1 flex justify-between items-center mb-2">
       <span>Error</span>
       <button onClick={() => onClose(error.id)} className="bg-[#c0c0c0] text-black border-t-white border-l-white border-b-black border-r-black border-2 px-1 hover:bg-[#a0a0a0] leading-none">X</button>
@@ -177,10 +177,10 @@ export default function App() {
   const [escapes, setEscapes] = useState(0);
   const [noStyle, setNoStyle] = useState({});
   const [systemOverride, setSystemOverride] = useState(false);
-  
+
   const [errorPopups, setErrorPopups] = useState([]);
   const [secretActivated, setSecretActivated] = useState(false);
-  const [yesViruses, setYesViruses] = useState([]); // Array to hold all our YES viruses!
+  const [yesViruses, setYesViruses] = useState([]);
 
   const phrases = [
     "NO", "ARE YOU SURE?", "REALLY SURE?", "THINK AGAIN!", "LAST CHANCE!",
@@ -189,12 +189,9 @@ export default function App() {
   ];
 
   const isLastPhrase = noCount >= phrases.length - 1;
-  const maxHits = 9; 
+  const maxHits = 9;
   const totalHits = noCount + escapes;
   const patienceLevel = Math.max(0, 100 - (totalHits / maxHits) * 100);
-  
-  // Shrinking logic for the 'NO' button
-  const currentNoScale = Math.max(0.1, 1 - (totalHits * 0.12));
 
   useEffect(() => {
     let keys = [];
@@ -225,13 +222,12 @@ export default function App() {
     setErrorPopups(prev => prev.filter(err => err.id !== id));
   };
 
-  // Spawns a new YES button somewhere on the screen
   const spawnYesVirus = () => {
     setYesViruses(prev => [...prev, {
       id: Date.now() + Math.random(),
       top: `${Math.random() * 80 + 10}%`,
       left: `${Math.random() * 80 + 10}%`,
-      scale: Math.random() * 0.5 + 0.8, // Randomize size a bit
+      scale: Math.random() * 0.5 + 0.8,
     }]);
   };
 
@@ -239,7 +235,7 @@ export default function App() {
     playSound('win');
     setYesPressed(true);
     setErrorPopups([]);
-    setYesViruses([]); // Clear viruses when she finally says YES
+    setYesViruses([]);
   };
 
   const handleNoClick = () => {
@@ -250,7 +246,7 @@ export default function App() {
       setNoCount(noCount + 1);
       if (noCount >= 1) {
         spawnError();
-        spawnYesVirus(); // Spawn a virus!
+        spawnYesVirus();
       }
     }
   };
@@ -259,15 +255,14 @@ export default function App() {
     if (noCount >= 2 && !systemOverride) {
       playSound('hover');
       setEscapes(escapes + 1);
-      
+
       if (escapes % 2 === 0) spawnError();
-      
-      // Spawn YES viruses exponentially!
+
       const virusCount = Math.floor(escapes / 2) + 1;
       for (let i = 0; i < virusCount; i++) {
         spawnYesVirus();
       }
-      
+
       if (escapes >= 7) {
         playSound('alarm');
         setSystemOverride(true);
@@ -299,8 +294,8 @@ export default function App() {
           CHEAT CODE ACTIVATED!
         </h1>
         <p className="text-white text-xs md:text-xl leading-loose max-w-xl">
-          YOU TYPED "LOVE"! <br/><br/>
-          YOU FOUND THE SECRET SHORTCUT TO MY HEART. <br/>
+          YOU TYPED "LOVE"! <br /><br />
+          YOU FOUND THE SECRET SHORTCUT TO MY HEART. <br />
           SEE YOU ON OUR DATE! 💖
         </p>
       </div>
@@ -324,14 +319,14 @@ export default function App() {
             .animate-glitch { animation: glitch 0.2s linear infinite; }
           `}
         </style>
-        
+
         <div className="absolute inset-0 z-0 flex flex-wrap opacity-20 text-red-600 font-bold overflow-hidden pointer-events-none text-2xl">
-          {Array.from({length: 150}).map((_, i) => <span key={i} className="m-2">YES</span>)}
+          {Array.from({ length: 150 }).map((_, i) => <span key={i} className="m-2">YES</span>)}
         </div>
 
         <div className="z-10 bg-red-950 p-8 md:p-12 text-center flex flex-col items-start max-w-2xl w-[90%] mx-auto border-4 border-red-500 shadow-[0_0_50px_rgba(255,0,0,0.8)] min-h-[400px]">
           <h1 className="text-sm md:text-xl text-red-400 mb-6 leading-relaxed text-left w-full h-48 whitespace-pre-line">
-             {overrideMessage}
+            {overrideMessage}
           </h1>
           <button className="bg-green-500 hover:bg-green-400 text-black pixel-btn z-20 w-full py-8 text-xl md:text-3xl animate-pulse mt-10" onClick={triggerYes}>
             YES I WILL!
@@ -342,10 +337,8 @@ export default function App() {
   }
 
   return (
-    // Dynamic styling added for Screen Shake
     <div className={`min-h-screen bg-pink-300 bg-pixel-grid flex flex-col items-center justify-center overflow-hidden relative font-pixel select-none pt-10 ${!yesPressed && patienceLevel <= 50 ? 'animate-screen-shake' : ''}`}>
-      
-      {/* Dynamic Style block for animations and pixel fonts */}
+
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -370,7 +363,6 @@ export default function App() {
           @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px) rotate(-5deg); } 75% { transform: translateX(5px) rotate(5deg); } }
           .animate-shake { animation: shake 0.4s ease-in-out infinite; }
           
-          /* Hard Screen Shake Animation */
           @keyframes screen-shake {
             0% { transform: translate(1px, 1px) rotate(0deg); }
             10% { transform: translate(-1px, -2px) rotate(-1deg); }
@@ -388,17 +380,14 @@ export default function App() {
         `}
       </style>
 
-      {/* Red Alert Overlay (Triggers when Patience < 25%) */}
       {!yesPressed && patienceLevel <= 25 && (
         <div className="pointer-events-none fixed inset-0 z-40 shadow-[inset_0_0_100px_rgba(255,0,0,0.8)] bg-red-900/30 animate-pulse mix-blend-multiply"></div>
       )}
 
-      {/* Render Fake Error Popups */}
       {errorPopups.map((error) => (
         <Win95Error key={error.id} error={error} onClose={removeError} />
       ))}
 
-      {/* Render the YES Viruses! */}
       {!yesPressed && yesViruses.map((v) => (
         <button
           key={v.id}
@@ -414,7 +403,6 @@ export default function App() {
         </button>
       ))}
 
-      {/* Health Bar / Patience Meter */}
       {!yesPressed && (
         <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-[85%] max-w-md z-30 pixel-borders bg-black p-2 md:p-3">
           <div className="text-white text-[8px] md:text-xs mb-2 flex justify-between">
@@ -422,33 +410,31 @@ export default function App() {
             <span className={patienceLevel <= 25 ? 'text-red-500 animate-pulse' : ''}>{Math.round(patienceLevel)}%</span>
           </div>
           <div className="w-full h-4 md:h-6 bg-gray-800 border-2 border-white">
-            <div 
-              className={`h-full transition-all duration-300 ${patienceLevel > 50 ? 'bg-green-500' : patienceLevel > 25 ? 'bg-yellow-400' : 'bg-red-500'}`} 
+            <div
+              className={`h-full transition-all duration-300 ${patienceLevel > 50 ? 'bg-green-500' : patienceLevel > 25 ? 'bg-yellow-400' : 'bg-red-500'}`}
               style={{ width: `${patienceLevel}%` }}
             ></div>
           </div>
         </div>
       )}
 
-      {/* Render background elements */}
       <FloatingHearts />
       {!yesPressed && <StaticStickers />}
       {yesPressed && <Confetti />}
 
-      {/* Main Interactive Card */}
       <div className="z-10 bg-white p-8 md:p-12 text-center flex flex-col items-center max-w-2xl w-[90%] mx-auto pixel-borders relative mt-8">
-        
+
         {yesPressed ? (
           <>
             <CodedPixelArt matrix={happyHeart} className="w-32 h-32 md:w-48 md:h-48 mb-8 animate-bounce" />
-            <h1 className="text-xl md:text-3xl text-pink-600 mb-6 leading-relaxed animate-pulse-heart">PLAYER 2 JOINED! <br/> YAYYYYY!</h1>
-            <p className="text-xs md:text-sm text-pink-500 leading-loose">I KNEW YOU'D SAY YES! <br/> READY FOR OUR DATE!</p>
+            <h1 className="text-xl md:text-3xl text-pink-600 mb-6 leading-relaxed animate-pulse-heart">PLAYER 2 JOINED! <br /> YAYYYYY!</h1>
+            <p className="text-xs md:text-sm text-pink-500 leading-loose">I KNEW YOU'D SAY YES! <br /> READY FOR OUR DATE!</p>
           </>
         ) : (
           <>
             <CodedPixelArt matrix={noCount === 0 ? normalHeart : sadHeart} className={`w-32 h-32 md:w-48 md:h-48 mb-8 ${noCount > 0 ? 'animate-shake' : 'animate-pulse-heart'}`} />
-            <h1 className="text-lg md:text-2xl text-pink-600 mb-10 leading-relaxed mt-2">BE MY VALENTINE? <br/> (Y/N)</h1>
-            
+            <h1 className="text-lg md:text-2xl text-pink-600 mb-10 leading-relaxed mt-2">BE MY VALENTINE? <br /> (Y/N)</h1>
+
             <div className="flex flex-col md:flex-row items-center justify-center gap-6 w-full flex-wrap">
               <button
                 className="bg-green-400 hover:bg-green-500 text-black pixel-btn z-20 animate-pulse-heart"
@@ -458,11 +444,10 @@ export default function App() {
                 YES!
               </button>
 
-              {/* NO BUTTON - Inside Card (Shrinks!) */}
               {escapes === 0 && (
                 <button
                   className={`pixel-btn px-6 py-4 z-10 ${isLastPhrase ? 'bg-green-400 hover:bg-green-500 text-black animate-pulse-heart' : 'bg-red-400 hover:bg-red-500 text-black'}`}
-                  style={{ fontSize: '10px', lineHeight: '1.8', transform: `scale(${currentNoScale})` }}
+                  style={{ fontSize: '10px', lineHeight: '1.8' }}
                   onClick={handleNoClick}
                   onMouseEnter={handleNoHover}
                   onTouchStart={handleNoHover}
@@ -475,11 +460,10 @@ export default function App() {
         )}
       </div>
 
-      {/* ESCAPED NO BUTTON - Floats outside, and shrinks exponentially! */}
       {escapes > 0 && !yesPressed && (
         <button
           className={`pixel-btn px-6 py-4 z-[9999] ${isLastPhrase ? 'bg-green-400 hover:bg-green-500 text-black animate-pulse-heart' : 'bg-red-400 hover:bg-red-500 text-black'}`}
-          style={{ fontSize: '10px', lineHeight: '1.8', top: noStyle.top, left: noStyle.left, position: noStyle.position, transform: `translate(-50%, -50%) rotate(${noStyle.rotate || 0}deg) scale(${currentNoScale})` }}
+          style={{ fontSize: '10px', lineHeight: '1.8', top: noStyle.top, left: noStyle.left, position: noStyle.position, transform: `translate(-50%, -50%) rotate(${noStyle.rotate || 0}deg)` }}
           onClick={handleNoClick}
           onMouseEnter={handleNoHover}
           onTouchStart={handleNoHover}
